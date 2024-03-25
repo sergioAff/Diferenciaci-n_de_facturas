@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <record id="view_account_invoice_tree" model="ir.ui.view">
+            <field name="name">account.invoice.tree</field>
+            <field name="model">account.invoice</field>
+            <field name="priority" eval="15"/>
+            <field name="arch" type="xml">
+            <tree string="Facturas de Venta" decoration-danger="type=='out_refund'">
+                <field name="partner_id" string="Cliente"/>
+                <field name="amount_total" string="Monto Total"/>
+                <field name="type"/>
+                <field name="state" invisible="1"/>
+            </tree>
+
+
+            </field>
+        </record>
+
+        <record id="action_account_invoice_list" model="ir.actions.act_window">
+            <field name="name">Facturas de Venta</field>
+            <field name="res_model">account.invoice</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_account_invoice_list" name="Facturas de Venta" parent="account.menu_finance" action="action_account_invoice_list"/>
+    </data>
+</odoo>
